@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- 用户表 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.like.dao.mapper.User">
+  <resultMap id="BaseResultMap" type="com.like.entity.User">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="UserId" jdbcType="VARCHAR" property="userid" />
+    <result column="UserLoginName" jdbcType="VARCHAR" property="userloginname" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="UserPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="UserState" jdbcType="VARCHAR" property="userstate" />
+    <result column="UserRole" jdbcType="VARCHAR" property="userrole" />
+    <result column="UserDeleteState" jdbcType="VARCHAR" property="userdeletestate" />
+    <result column="UserDelete" jdbcType="VARCHAR" property="userdelete" />
+    <result column="UserCreateTime" jdbcType="TIMESTAMP" property="usercreatetime" />
+    <result column="UserUpdateTime" jdbcType="TIMESTAMP" property="userupdatetime" />
+    <result column="UserOther1" jdbcType="VARCHAR" property="userother1" />
+    <result column="UserOther2" jdbcType="VARCHAR" property="userother2" />
+    <result column="UserOther3" jdbcType="VARCHAR" property="userother3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, UserId, UserLoginName, UserName, UserPassword, UserState, UserRole, UserDeleteState, 
+    UserDelete, UserCreateTime, UserUpdateTime, UserOther1, UserOther2, UserOther3
+  </sql>
+
+
+
+  <insert id="insert" parameterType="com.like.entity.User">
+    insert into user (ID, UserId, UserLoginName,
+    UserName, UserPassword, UserState,
+    UserRole, UserDeleteState, UserDelete,
+    UserCreateTime, UserUpdateTime, UserOther1,
+    UserOther2, UserOther3)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{userloginname,jdbcType=VARCHAR},
+    #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, #{userstate,jdbcType=VARCHAR},
+    #{userrole,jdbcType=VARCHAR}, #{userdeletestate,jdbcType=VARCHAR}, #{userdelete,jdbcType=VARCHAR},
+    #{usercreatetime,jdbcType=TIMESTAMP}, #{userupdatetime,jdbcType=TIMESTAMP}, #{userother1,jdbcType=VARCHAR},
+    #{userother2,jdbcType=VARCHAR}, #{userother3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.like.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="userid != null">
+        UserId,
+      </if>
+      <if test="userloginname != null">
+        UserLoginName,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="userpassword != null">
+        UserPassword,
+      </if>
+      <if test="userstate != null">
+        UserState,
+      </if>
+      <if test="userrole != null">
+        UserRole,
+      </if>
+      <if test="userdeletestate != null">
+        UserDeleteState,
+      </if>
+      <if test="userdelete != null">
+        UserDelete,
+      </if>
+      <if test="usercreatetime != null">
+        UserCreateTime,
+      </if>
+      <if test="userupdatetime != null">
+        UserUpdateTime,
+      </if>
+      <if test="userother1 != null">
+        UserOther1,
+      </if>
+      <if test="userother2 != null">
+        UserOther2,
+      </if>
+      <if test="userother3 != null">
+        UserOther3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="userloginname != null">
+        #{userloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        #{userstate,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="userdeletestate != null">
+        #{userdeletestate,jdbcType=VARCHAR},
+      </if>
+      <if test="userdelete != null">
+        #{userdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="usercreatetime != null">
+        #{usercreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userupdatetime != null">
+        #{userupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userother1 != null">
+        #{userother1,jdbcType=VARCHAR},
+      </if>
+      <if test="userother2 != null">
+        #{userother2,jdbcType=VARCHAR},
+      </if>
+      <if test="userother3 != null">
+        #{userother3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.like.entity.User">
+    update user
+    <set>
+      <if test="userid != null">
+        UserId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="userloginname != null">
+        UserLoginName = #{userloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        UserPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        UserState = #{userstate,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        UserRole = #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="userdeletestate != null">
+        UserDeleteState = #{userdeletestate,jdbcType=VARCHAR},
+      </if>
+      <if test="userdelete != null">
+        UserDelete = #{userdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="usercreatetime != null">
+        UserCreateTime = #{usercreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userupdatetime != null">
+        UserUpdateTime = #{userupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userother1 != null">
+        UserOther1 = #{userother1,jdbcType=VARCHAR},
+      </if>
+      <if test="userother2 != null">
+        UserOther2 = #{userother2,jdbcType=VARCHAR},
+      </if>
+      <if test="userother3 != null">
+        UserOther3 = #{userother3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.like.entity.User">
+    update user
+    set UserId = #{userid,jdbcType=VARCHAR},
+    UserLoginName = #{userloginname,jdbcType=VARCHAR},
+    UserName = #{username,jdbcType=VARCHAR},
+    UserPassword = #{userpassword,jdbcType=VARCHAR},
+    UserState = #{userstate,jdbcType=VARCHAR},
+    UserRole = #{userrole,jdbcType=VARCHAR},
+    UserDeleteState = #{userdeletestate,jdbcType=VARCHAR},
+    UserDelete = #{userdelete,jdbcType=VARCHAR},
+    UserCreateTime = #{usercreatetime,jdbcType=TIMESTAMP},
+    UserUpdateTime = #{userupdatetime,jdbcType=TIMESTAMP},
+    UserOther1 = #{userother1,jdbcType=VARCHAR},
+    UserOther2 = #{userother2,jdbcType=VARCHAR},
+    UserOther3 = #{userother3,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+
+
+
+  <!-- 根据User实体添加 -->
+  <insert id="insertByUser" parameterType="com.like.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="userid != null">
+        UserId,
+      </if>
+      <if test="userloginname != null">
+        UserLoginName,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="userpassword != null">
+        UserPassword,
+      </if>
+      <if test="userstate != null">
+        UserState,
+      </if>
+      <if test="userrole != null">
+        UserRole,
+      </if>
+      <if test="userdeletestate != null">
+        UserDeleteState,
+      </if>
+      <if test="userdelete != null">
+        UserDelete,
+      </if>
+      <if test="usercreatetime != null">
+        UserCreateTime,
+      </if>
+      <if test="userupdatetime != null">
+        UserUpdateTime,
+      </if>
+      <if test="userother1 != null">
+        UserOther1,
+      </if>
+      <if test="userother2 != null">
+        UserOther2,
+      </if>
+      <if test="userother3 != null">
+        UserOther3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="userloginname != null">
+        #{userloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        #{userstate,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="userdeletestate != null">
+        #{userdeletestate,jdbcType=VARCHAR},
+      </if>
+      <if test="userdelete != null">
+        #{userdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="usercreatetime != null">
+        #{usercreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userupdatetime != null">
+        #{userupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userother1 != null">
+        #{userother1,jdbcType=VARCHAR},
+      </if>
+      <if test="userother2 != null">
+        #{userother2,jdbcType=VARCHAR},
+      </if>
+      <if test="userother3 != null">
+        #{userother3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <!-- 根据User实体更新 -->
+  <update id="updateByUser" parameterType="com.like.entity.User">
+    update user
+    <set>
+      <if test="userid != null">
+        UserId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="userloginname != null">
+        UserLoginName = #{userloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        UserPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        UserState = #{userstate,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        UserRole = #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="userdeletestate != null">
+        UserDeleteState = #{userdeletestate,jdbcType=VARCHAR},
+      </if>
+      <if test="userdelete != null">
+        UserDelete = #{userdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="usercreatetime != null">
+        UserCreateTime = #{usercreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userupdatetime != null">
+        UserUpdateTime = #{userupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userother1 != null">
+        UserOther1 = #{userother1,jdbcType=VARCHAR},
+      </if>
+      <if test="userother2 != null">
+        UserOther2 = #{userother2,jdbcType=VARCHAR},
+      </if>
+      <if test="userother3 != null">
+        UserOther3 = #{userother3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="id != null">
+          and ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="userid != null and userid != ''">
+          and UserId = #{userid,jdbcType=VARCHAR}
+        </if>
+
+        <!-- 未删除数据 -->
+        <if test="userdeletestate != null and userdeletestate != ''">
+          and UserDeleteState = "N"
+        </if>
+      </trim>
+    </where>
+  </update>
+
+
+  <!-- 根据User实体查询 -->
+  <!-- 查询数量 -->
+  <select id="selectCountByUser" parameterType="com.like.entity.User" resultType="java.lang.Integer">
+    select count(*) from user
+    <where>
+      <trim suffixOverrides="and|or">
+        <!-- 未删除数据 -->
+           UserDeleteState = "N"
+        <if test="userid != null and userid != ''">
+          and UserId = #{userid,jdbcType=VARCHAR}
+        </if>
+        <if test="userstate != null and userstate != ''">
+          and UserState = #{userstate,jdbcType=VARCHAR}
+        </if>
+        <if test="userrole != null and userrole != ''">
+          and UserRole = #{userrole,jdbcType=VARCHAR}
+        </if>
+        <if test="userloginname != null and userloginname != ''">
+          and UserLoginName = #{userloginname,jdbcType=VARCHAR}
+        </if>
+        <if test="userpassword != null and userpassword != ''">
+          and UserPassword = #{userpassword,jdbcType=VARCHAR}
+        </if>
+
+
+
+      </trim>
+    </where>
+  </select>
+
+  <!-- 根据User实体查询 -->
+  <!-- 可以进行分页查询 -->
+  <!-- pageNumber 当前页数(如果不进行分页，该条数据默认为-1) -->
+  <!-- pageSize 每页的数据量 -->
+  <select id="selectByUser" parameterType="com.like.entity.User" resultMap="BaseResultMap">
+    select * from user
+    <where>
+      <trim suffixOverrides="and|or">
+        <!-- 未删除数据 -->
+           UserDeleteState = "N"
+        <if test="userid != null and userid != ''">
+          and UserId = #{userid,jdbcType=VARCHAR}
+        </if>
+        <if test="userstate != null and userstate != ''">
+          and UserState = #{userstate,jdbcType=VARCHAR}
+        </if>
+        <if test="userrole != null and userrole != ''">
+          and UserRole = #{userrole,jdbcType=VARCHAR}
+        </if>
+        <if test="userloginname != null and userloginname != ''">
+          and UserLoginName = #{userloginname,jdbcType=VARCHAR}
+        </if>
+        <if test="userpassword != null and userpassword != ''">
+          and UserPassword = #{userpassword,jdbcType=VARCHAR}
+        </if>
+
+
+      </trim>
+    </where>
+    <!-- 分页 -->
+    <if test="pagenumber != -1">
+      limit #{pagenumber,jdbcType=INTEGER},
+      #{pagesize,jdbcType=INTEGER}
+    </if>
+  </select>
+
+
+  <!-- 根据User实体模糊查询 -->
+  <!-- 查询数量 -->
+  <select id="selectCountBySelectData" parameterType="com.like.entity.User" resultType="java.lang.Integer">
+    select count(*) from user
+    <where>
+      <trim suffixOverrides="and|or">
+        <!-- 未删除数据 -->
+           UserDeleteState = "N"
+        <if test="userid != null and userid != ''">
+          and UserId = #{userid,jdbcType=VARCHAR}
+        </if>
+        <if test="userstate != null and userstate != ''">
+          and UserState = #{userstate,jdbcType=VARCHAR}
+        </if>
+        <if test="userrole != null and userrole != ''">
+          and UserRole = #{userrole,jdbcType=VARCHAR}
+        </if>
+        <if test="userloginname != null and userloginname != ''">
+          and UserLoginName like CONCAT('%',#{userloginname,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="username != null and username != ''">
+          and UserName like CONCAT('%',#{username,jdbcType=VARCHAR},'%')
+        </if>
+
+
+      </trim>
+    </where>
+  </select>
+
+  <!-- 根据User实体模糊查询 -->
+  <!-- 可以进行分页查询 -->
+  <!-- pageNumber 当前页数(如果不进行分页，该条数据默认为-1) -->
+  <!-- pageSize 每页的数据量 -->
+  <select id="selectBySelectData" parameterType="com.like.entity.User" resultMap="BaseResultMap">
+    select * from user
+    <where>
+      <trim suffixOverrides="and|or">
+        <!-- 未删除数据 -->
+           UserDeleteState = "N"
+        <if test="userid != null and userid != ''">
+          and UserId = #{userid,jdbcType=VARCHAR}
+        </if>
+        <if test="userstate != null and userstate != ''">
+          and UserState = #{userstate,jdbcType=VARCHAR}
+        </if>
+        <if test="userrole != null and userrole != ''">
+          and UserRole = #{userrole,jdbcType=VARCHAR}
+        </if>
+        <if test="userloginname != null and userloginname != ''">
+          and UserLoginName like CONCAT('%',#{userloginname,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="username != null and username != ''">
+          and UserName like CONCAT('%',#{username,jdbcType=VARCHAR},'%')
+        </if>
+
+
+      </trim>
+    </where>
+    <!-- 分页 -->
+    <if test="pagenumber != -1">
+      limit #{pagenumber,jdbcType=INTEGER},
+      #{pagesize,jdbcType=INTEGER}
+    </if>
+  </select>
+
+
+  <!-- 根据User实体删除（假删、更新删除状态） -->
+  <update id="updateByUserDeleteState"  parameterType="com.like.entity.User">
+    update user
+    <set>
+      <if test="userid != null">
+        UserId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="userloginname != null">
+        UserLoginName = #{userloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        UserPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        UserState = #{userstate,jdbcType=VARCHAR},
+      </if>
+      <if test="userrole != null">
+        UserRole = #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="userdeletestate != null">
+        UserDeleteState = #{userdeletestate,jdbcType=VARCHAR},
+      </if>
+      <if test="userdelete != null">
+        UserDelete = #{userdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="usercreatetime != null">
+        UserCreateTime = #{usercreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userupdatetime != null">
+        UserUpdateTime = #{userupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userother1 != null">
+        UserOther1 = #{userother1,jdbcType=VARCHAR},
+      </if>
+      <if test="userother2 != null">
+        UserOther2 = #{userother2,jdbcType=VARCHAR},
+      </if>
+      <if test="userother3 != null">
+        UserOther3 = #{userother3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="id != null">
+          and ID = #{id,jdbcType=INTEGER}
+        </if>
+
+
+      </trim>
+    </where>
+  </update>
+
+  <!-- 根据User实体删除 -->
+  <delete id="deleteByUser" parameterType="com.like.entity.User">
+    delete from user
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="userid != null and userid != ''">
+          and UserId = #{userid,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+  </delete>
+
+</mapper>

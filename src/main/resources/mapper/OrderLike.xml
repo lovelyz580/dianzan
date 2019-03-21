@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.like.dao.mapper.OrderLike">
+  <resultMap id="BaseResultMap" type="com.like.entity.OrderLike">
+    <id column="like_id" jdbcType="VARCHAR" property="likeId" />
+    <result column="like_menuid" jdbcType="VARCHAR" property="likeMenuid" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="like_userid" jdbcType="VARCHAR" property="likeUserid" />
+    <result column="like_createtime" jdbcType="TIMESTAMP" property="likeCreatetime" />
+    <result column="like_updatetime" jdbcType="TIMESTAMP" property="likeUpdatetime" />
+    <result column="like_updateby" jdbcType="VARCHAR" property="likeUpdateby" />
+    <result column="like_state" jdbcType="INTEGER" property="likeState" />
+    <result column="like_other1" jdbcType="VARCHAR" property="likeOther1" />
+    <result column="like_other2" jdbcType="VARCHAR" property="likeOther2" />
+    <result column="like_other3" jdbcType="VARCHAR" property="likeOther3" />
+    <result column="like_other4" jdbcType="VARCHAR" property="likeOther4" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    like_id, like_menuid, like_count, like_userid, like_createtime, like_updatetime, 
+    like_updateby, like_state, like_other1, like_other2, like_other3, like_other4
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order_like
+    where like_id = #{likeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from order_like
+    where like_id = #{likeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.like.entity.OrderLike">
+    insert into order_like (like_id, like_menuid, like_count, 
+      like_userid, like_createtime, like_updatetime, 
+      like_updateby, like_state, like_other1, 
+      like_other2, like_other3, like_other4
+      )
+    values (#{likeId,jdbcType=VARCHAR}, #{likeMenuid,jdbcType=VARCHAR}, #{likeCount,jdbcType=INTEGER}, 
+      #{likeUserid,jdbcType=VARCHAR}, #{likeCreatetime,jdbcType=TIMESTAMP}, #{likeUpdatetime,jdbcType=TIMESTAMP}, 
+      #{likeUpdateby,jdbcType=VARCHAR}, #{likeState,jdbcType=INTEGER}, #{likeOther1,jdbcType=VARCHAR}, 
+      #{likeOther2,jdbcType=VARCHAR}, #{likeOther3,jdbcType=VARCHAR}, #{likeOther4,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.like.entity.OrderLike">
+    insert into order_like
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="likeId != null">
+        like_id,
+      </if>
+      <if test="likeMenuid != null">
+        like_menuid,
+      </if>
+      <if test="likeCount != null">
+        like_count,
+      </if>
+      <if test="likeUserid != null">
+        like_userid,
+      </if>
+      <if test="likeCreatetime != null">
+        like_createtime,
+      </if>
+      <if test="likeUpdatetime != null">
+        like_updatetime,
+      </if>
+      <if test="likeUpdateby != null">
+        like_updateby,
+      </if>
+      <if test="likeState != null">
+        like_state,
+      </if>
+      <if test="likeOther1 != null">
+        like_other1,
+      </if>
+      <if test="likeOther2 != null">
+        like_other2,
+      </if>
+      <if test="likeOther3 != null">
+        like_other3,
+      </if>
+      <if test="likeOther4 != null">
+        like_other4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="likeId != null">
+        #{likeId,jdbcType=VARCHAR},
+      </if>
+      <if test="likeMenuid != null">
+        #{likeMenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCount != null">
+        #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="likeUserid != null">
+        #{likeUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCreatetime != null">
+        #{likeCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeUpdatetime != null">
+        #{likeUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeUpdateby != null">
+        #{likeUpdateby,jdbcType=VARCHAR},
+      </if>
+      <if test="likeState != null">
+        #{likeState,jdbcType=INTEGER},
+      </if>
+      <if test="likeOther1 != null">
+        #{likeOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther2 != null">
+        #{likeOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther3 != null">
+        #{likeOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther4 != null">
+        #{likeOther4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.like.entity.OrderLike">
+    update order_like
+    <set>
+      <if test="likeMenuid != null">
+        like_menuid = #{likeMenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCount != null">
+        like_count = #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="likeUserid != null">
+        like_userid = #{likeUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCreatetime != null">
+        like_createtime = #{likeCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeUpdatetime != null">
+        like_updatetime = #{likeUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeUpdateby != null">
+        like_updateby = #{likeUpdateby,jdbcType=VARCHAR},
+      </if>
+      <if test="likeState != null">
+        like_state = #{likeState,jdbcType=INTEGER},
+      </if>
+      <if test="likeOther1 != null">
+        like_other1 = #{likeOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther2 != null">
+        like_other2 = #{likeOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther3 != null">
+        like_other3 = #{likeOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther4 != null">
+        like_other4 = #{likeOther4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where like_id = #{likeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.like.entity.OrderLike">
+    update order_like
+    set like_menuid = #{likeMenuid,jdbcType=VARCHAR},
+      like_count = #{likeCount,jdbcType=INTEGER},
+      like_userid = #{likeUserid,jdbcType=VARCHAR},
+      like_createtime = #{likeCreatetime,jdbcType=TIMESTAMP},
+      like_updatetime = #{likeUpdatetime,jdbcType=TIMESTAMP},
+      like_updateby = #{likeUpdateby,jdbcType=VARCHAR},
+      like_state = #{likeState,jdbcType=INTEGER},
+      like_other1 = #{likeOther1,jdbcType=VARCHAR},
+      like_other2 = #{likeOther2,jdbcType=VARCHAR},
+      like_other3 = #{likeOther3,jdbcType=VARCHAR},
+      like_other4 = #{likeOther4,jdbcType=VARCHAR}
+    where like_id = #{likeId,jdbcType=VARCHAR}
+  </update>
+  <!-- 根据OrderLike实体添加 -->
+  <insert id="insertByOrderLike" parameterType="com.like.entity.OrderLike">
+    insert into order_like
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="likeId != null">
+        like_id,
+      </if>
+      <if test="likeMenuid != null">
+        like_menuid,
+      </if>
+      <if test="likeCount != null">
+        like_count,
+      </if>
+      <if test="likeUserid != null">
+        like_userid,
+      </if>
+      <if test="likeCreatetime != null">
+        like_createtime,
+      </if>
+      <if test="likeUpdatetime != null">
+        like_updatetime,
+      </if>
+      <if test="likeUpdateby != null">
+        like_updateby,
+      </if>
+      <if test="likeState != null">
+        like_state,
+      </if>
+      <if test="likeOther1 != null">
+        like_other1,
+      </if>
+      <if test="likeOther2 != null">
+        like_other2,
+      </if>
+      <if test="likeOther3 != null">
+        like_other3,
+      </if>
+      <if test="likeOther4 != null">
+        like_other4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="likeId != null">
+        #{likeId,jdbcType=VARCHAR},
+      </if>
+      <if test="likeMenuid != null">
+        #{likeMenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCount != null">
+        #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="likeUserid != null">
+        #{likeUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCreatetime != null">
+        #{likeCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeUpdatetime != null">
+        #{likeUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeUpdateby != null">
+        #{likeUpdateby,jdbcType=VARCHAR},
+      </if>
+      <if test="likeState != null">
+        #{likeState,jdbcType=INTEGER},
+      </if>
+      <if test="likeOther1 != null">
+        #{likeOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther2 != null">
+        #{likeOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther3 != null">
+        #{likeOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther4 != null">
+        #{likeOther4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!-- 根据OrderLike实体更新 -->
+  <update id="updateByOrderLike" parameterType="com.like.entity.OrderLike">
+    update order_like
+    <set>
+      <if test="likeMenuid != null">
+        like_menuid = #{likeMenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCount != null">
+        like_count = #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="likeUserid != null">
+        like_userid = #{likeUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCreatetime != null">
+        like_createtime = #{likeCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeUpdatetime != null">
+        like_updatetime = #{likeUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeUpdateby != null">
+        like_updateby = #{likeUpdateby,jdbcType=VARCHAR},
+      </if>
+      <if test="likeState != null">
+        like_state = #{likeState,jdbcType=INTEGER},
+      </if>
+      <if test="likeOther1 != null">
+        like_other1 = #{likeOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther2 != null">
+        like_other2 = #{likeOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther3 != null">
+        like_other3 = #{likeOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="likeOther4 != null">
+        like_other4 = #{likeOther4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="likeId != null">
+          like_id = #{likeId,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+  </update>
+  <!-- 根据OrderLike实体查询 -->
+  <!-- 查询数量 -->
+  <select id="selectCountByOrderLike" parameterType="com.like.entity.OrderLike" resultType="java.lang.Integer">
+    select count(*) from order_like
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="likeId != null">
+          like_id = #{likeId,jdbcType=VARCHAR}
+        </if>
+        <if test="likeMenuid != null">
+          AND  like_menuid = #{likeMenuid,jdbcType=VARCHAR}
+        </if>
+        <if test="likeUserid != null">
+          AND like_userid = #{likeUserid,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+  </select>
+  <!-- 根据OrderLike实体查询 -->
+  <!-- 可以进行分页查询 -->
+  <!-- pageNumber 当前页数(如果不进行分页，该条数据默认为-1) -->
+  <!-- pageSize 每页的数据量 -->
+  <select id="selectByOrderLike" parameterType="com.like.entity.OrderLike" resultMap="BaseResultMap">
+    select * from order_like
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="likeId != null">
+          like_id = #{likeId,jdbcType=VARCHAR}
+        </if>
+        <if test="likeMenuid != null">
+          AND  like_menuid = #{likeMenuid,jdbcType=VARCHAR}
+        </if>
+        <if test="likeUserid != null">
+          AND like_userid = #{likeUserid,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+    <!-- 分页 -->
+    <if test="pagenumber != -1">
+      limit #{pagenumber,jdbcType=INTEGER},
+      #{pagesize,jdbcType=INTEGER}
+    </if>
+  </select>
+  
+  <!-- 根据OrderLike实体删除（假删、更新删除状态） -->
+  <update id="updateByOrderLikeDeleteState"  parameterType="com.like.entity.OrderLike">
+    update order_like
+    <set>
+      like_state = 0
+    </set>
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="likeId != null">
+          like_id = #{likeId,jdbcType=VARCHAR}
+        </if>
+        <if test="likeMenuid != null">
+          AND  like_menuid = #{likeMenuid,jdbcType=VARCHAR}
+        </if>
+        <if test="likeUserid != null">
+          AND like_userid = #{likeUserid,jdbcType=VARCHAR}
+        </if>
+
+      </trim>
+    </where>
+  </update>
+
+  <!-- 根据OrderLike实体删除 -->
+  <delete id="deleteByOrderLike" parameterType="com.like.entity.OrderLike">
+    delete from order_like
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="likeId != null">
+          like_id = #{likeId,jdbcType=VARCHAR}
+        </if>
+        <if test="likeMenuid != null">
+          AND  like_menuid = #{likeMenuid,jdbcType=VARCHAR}
+        </if>
+        <if test="likeUserid != null">
+          AND like_userid = #{likeUserid,jdbcType=VARCHAR}
+        </if>
+
+      </trim>
+    </where>
+  </delete>
+</mapper>

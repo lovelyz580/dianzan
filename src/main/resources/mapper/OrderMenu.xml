@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.like.dao.mapper.OrderMenu">
+  <resultMap id="BaseResultMap" type="com.like.entity.OrderMenu">
+    <id column="menu_id" jdbcType="VARCHAR" property="menuId" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="menu_src" jdbcType="VARCHAR" property="menuSrc" />
+    <result column="menu_info" jdbcType="VARCHAR" property="menuInfo" />
+    <result column="menu_createtime" jdbcType="TIMESTAMP" property="menuCreatetime" />
+    <result column="menu_createbyid" jdbcType="VARCHAR" property="menuCreatebyid" />
+    <result column="menu_updatetime" jdbcType="TIMESTAMP" property="menuUpdatetime" />
+    <result column="menu_updatebyid" jdbcType="VARCHAR" property="menuUpdatebyid" />
+    <result column="menu_state" jdbcType="INTEGER" property="menuState" />
+    <result column="menu_other1" jdbcType="VARCHAR" property="menuOther1" />
+    <result column="menu_other2" jdbcType="VARCHAR" property="menuOther2" />
+    <result column="menu_other3" jdbcType="VARCHAR" property="menuOther3" />
+    <result column="menu_other4" jdbcType="VARCHAR" property="menuOther4" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    menu_id, menu_name, menu_src, menu_info, menu_createtime, menu_createbyid, menu_updatetime, 
+    menu_updatebyid, menu_state, menu_other1, menu_other2, menu_other3, menu_other4
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order_menu
+    where menu_id = #{menuId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from order_menu
+    where menu_id = #{menuId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.like.entity.OrderMenu">
+    insert into order_menu (menu_id, menu_name, menu_src, 
+      menu_info, menu_createtime, menu_createbyid, 
+      menu_updatetime, menu_updatebyid, menu_state, 
+      menu_other1, menu_other2, menu_other3, 
+      menu_other4)
+    values (#{menuId,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR}, #{menuSrc,jdbcType=VARCHAR}, 
+      #{menuInfo,jdbcType=VARCHAR}, #{menuCreatetime,jdbcType=TIMESTAMP}, #{menuCreatebyid,jdbcType=VARCHAR}, 
+      #{menuUpdatetime,jdbcType=TIMESTAMP}, #{menuUpdatebyid,jdbcType=VARCHAR}, #{menuState,jdbcType=INTEGER}, 
+      #{menuOther1,jdbcType=VARCHAR}, #{menuOther2,jdbcType=VARCHAR}, #{menuOther3,jdbcType=VARCHAR}, 
+      #{menuOther4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.like.entity.OrderMenu">
+    insert into order_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuId != null">
+        menu_id,
+      </if>
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="menuSrc != null">
+        menu_src,
+      </if>
+      <if test="menuInfo != null">
+        menu_info,
+      </if>
+      <if test="menuCreatetime != null">
+        menu_createtime,
+      </if>
+      <if test="menuCreatebyid != null">
+        menu_createbyid,
+      </if>
+      <if test="menuUpdatetime != null">
+        menu_updatetime,
+      </if>
+      <if test="menuUpdatebyid != null">
+        menu_updatebyid,
+      </if>
+      <if test="menuState != null">
+        menu_state,
+      </if>
+      <if test="menuOther1 != null">
+        menu_other1,
+      </if>
+      <if test="menuOther2 != null">
+        menu_other2,
+      </if>
+      <if test="menuOther3 != null">
+        menu_other3,
+      </if>
+      <if test="menuOther4 != null">
+        menu_other4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuId != null">
+        #{menuId,jdbcType=VARCHAR},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuSrc != null">
+        #{menuSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="menuInfo != null">
+        #{menuInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="menuCreatetime != null">
+        #{menuCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menuCreatebyid != null">
+        #{menuCreatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUpdatetime != null">
+        #{menuUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menuUpdatebyid != null">
+        #{menuUpdatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuState != null">
+        #{menuState,jdbcType=INTEGER},
+      </if>
+      <if test="menuOther1 != null">
+        #{menuOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther2 != null">
+        #{menuOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther3 != null">
+        #{menuOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther4 != null">
+        #{menuOther4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.like.entity.OrderMenu">
+    update order_menu
+    <set>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuSrc != null">
+        menu_src = #{menuSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="menuInfo != null">
+        menu_info = #{menuInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="menuCreatetime != null">
+        menu_createtime = #{menuCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menuCreatebyid != null">
+        menu_createbyid = #{menuCreatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUpdatetime != null">
+        menu_updatetime = #{menuUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menuUpdatebyid != null">
+        menu_updatebyid = #{menuUpdatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuState != null">
+        menu_state = #{menuState,jdbcType=INTEGER},
+      </if>
+      <if test="menuOther1 != null">
+        menu_other1 = #{menuOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther2 != null">
+        menu_other2 = #{menuOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther3 != null">
+        menu_other3 = #{menuOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther4 != null">
+        menu_other4 = #{menuOther4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where menu_id = #{menuId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.like.entity.OrderMenu">
+    update order_menu
+    set menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_src = #{menuSrc,jdbcType=VARCHAR},
+      menu_info = #{menuInfo,jdbcType=VARCHAR},
+      menu_createtime = #{menuCreatetime,jdbcType=TIMESTAMP},
+      menu_createbyid = #{menuCreatebyid,jdbcType=VARCHAR},
+      menu_updatetime = #{menuUpdatetime,jdbcType=TIMESTAMP},
+      menu_updatebyid = #{menuUpdatebyid,jdbcType=VARCHAR},
+      menu_state = #{menuState,jdbcType=INTEGER},
+      menu_other1 = #{menuOther1,jdbcType=VARCHAR},
+      menu_other2 = #{menuOther2,jdbcType=VARCHAR},
+      menu_other3 = #{menuOther3,jdbcType=VARCHAR},
+      menu_other4 = #{menuOther4,jdbcType=VARCHAR}
+    where menu_id = #{menuId,jdbcType=VARCHAR}
+  </update>
+
+
+
+
+  <!-- 根据OrderMenu实体添加 -->
+  <insert id="insertByOrderMenu" parameterType="com.like.entity.OrderMenu">
+    insert into order_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuId != null">
+        menu_id,
+      </if>
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="menuSrc != null">
+        menu_src,
+      </if>
+      <if test="menuInfo != null">
+        menu_info,
+      </if>
+      <if test="menuCreatetime != null">
+        menu_createtime,
+      </if>
+      <if test="menuCreatebyid != null">
+        menu_createbyid,
+      </if>
+      <if test="menuUpdatetime != null">
+        menu_updatetime,
+      </if>
+      <if test="menuUpdatebyid != null">
+        menu_updatebyid,
+      </if>
+      <if test="menuState != null">
+        menu_state,
+      </if>
+      <if test="menuOther1 != null">
+        menu_other1,
+      </if>
+      <if test="menuOther2 != null">
+        menu_other2,
+      </if>
+      <if test="menuOther3 != null">
+        menu_other3,
+      </if>
+      <if test="menuOther4 != null">
+        menu_other4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuId != null">
+        #{menuId,jdbcType=VARCHAR},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuSrc != null">
+        #{menuSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="menuInfo != null">
+        #{menuInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="menuCreatetime != null">
+        #{menuCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menuCreatebyid != null">
+        #{menuCreatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUpdatetime != null">
+        #{menuUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menuUpdatebyid != null">
+        #{menuUpdatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuState != null">
+        #{menuState,jdbcType=INTEGER},
+      </if>
+      <if test="menuOther1 != null">
+        #{menuOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther2 != null">
+        #{menuOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther3 != null">
+        #{menuOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther4 != null">
+        #{menuOther4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <!-- 根据OrderMenu实体更新 -->
+  <update id="updateByOrderMenu" parameterType="com.like.entity.OrderMenu">
+    update order_menu
+    <set>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuSrc != null">
+        menu_src = #{menuSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="menuInfo != null">
+        menu_info = #{menuInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="menuCreatetime != null">
+        menu_createtime = #{menuCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menuCreatebyid != null">
+        menu_createbyid = #{menuCreatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUpdatetime != null">
+        menu_updatetime = #{menuUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="menuUpdatebyid != null">
+        menu_updatebyid = #{menuUpdatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuState != null">
+        menu_state = #{menuState,jdbcType=INTEGER},
+      </if>
+      <if test="menuOther1 != null">
+        menu_other1 = #{menuOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther2 != null">
+        menu_other2 = #{menuOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther3 != null">
+        menu_other3 = #{menuOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOther4 != null">
+        menu_other4 = #{menuOther4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="menuId != null">
+          menu_id = #{menuId,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+  </update>
+
+
+  <!-- 根据OrderMenu实体查询 -->
+  <!-- 查询数量 -->
+  <select id="selectCountByOrderMenu" parameterType="com.like.entity.OrderMenu" resultType="java.lang.Integer">
+    select count(*) from order_menu
+    <where>
+      <trim suffixOverrides="and|or">
+
+          menu_state = 1
+
+        <if test="menuId != null">
+        AND   menu_id = #{menuId,jdbcType=VARCHAR}
+        </if>
+      <if test="menuName != null">
+        AND  menu_name = #{menuName,jdbcType=VARCHAR}
+      </if>
+
+      </trim>
+    </where>
+  </select>
+
+  <!-- 根据OrderMenu实体查询 -->
+  <!-- 可以进行分页查询 -->
+  <!-- pageNumber 当前页数(如果不进行分页，该条数据默认为-1) -->
+  <!-- pageSize 每页的数据量 -->
+  <select id="selectByOrderMenu" parameterType="com.like.entity.OrderMenu" resultMap="BaseResultMap">
+    select * from order_menu
+    <where>
+      <trim suffixOverrides="and|or">
+
+          menu_state = 1
+
+        <if test="menuId != null">
+          AND   menu_id = #{menuId,jdbcType=VARCHAR}
+        </if>
+        <if test="menuName != null">
+          AND  menu_name = #{menuName,jdbcType=VARCHAR}
+        </if>
+
+      </trim>
+    </where>
+    <!-- 分页 -->
+    <if test="pagenumber != -1">
+      limit #{pagenumber,jdbcType=INTEGER},
+      #{pagesize,jdbcType=INTEGER}
+    </if>
+  </select>
+
+
+  <!-- 根据OrderMenu实体模糊查询 -->
+  <!-- 查询数量 -->
+  <select id="selectCountBySelectData" parameterType="com.like.entity.OrderMenu" resultType="java.lang.Integer">
+    select count(*) from order_menu
+    <where>
+      <trim suffixOverrides="and|or">
+
+          menu_state = 1
+
+        <if test="menuId != null">
+          AND   menu_id = #{menuId,jdbcType=VARCHAR}
+        </if>
+        <if test="menuName != null">
+          AND  menu_name  like CONCAT('%', #{menuName,jdbcType=VARCHAR},'%')
+        </if>
+      </trim>
+    </where>
+  </select>
+
+  <!-- 根据OrderMenu实体模糊查询 -->
+  <!-- 可以进行分页查询 -->
+  <!-- pageNumber 当前页数(如果不进行分页，该条数据默认为-1) -->
+  <!-- pageSize 每页的数据量 -->
+  <select id="selectBySelectData" parameterType="com.like.entity.OrderMenu" resultMap="BaseResultMap">
+    select * from order_menu
+    <where>
+      <trim suffixOverrides="and|or">
+
+          menu_state = 1
+
+        <if test="menuId != null">
+          AND   menu_id = #{menuId,jdbcType=VARCHAR}
+        </if>
+        <if test="menuName != null">
+          AND  menu_name  like CONCAT('%', #{menuName,jdbcType=VARCHAR},'%')
+        </if>
+      </trim>
+    </where>
+    <!-- 分页 -->
+    <if test="pagenumber != -1">
+      limit #{pagenumber,jdbcType=INTEGER},
+      #{pagesize,jdbcType=INTEGER}
+    </if>
+  </select>
+
+
+  <!-- 根据OrderMenu实体删除（假删、更新删除状态） -->
+  <update id="updateByOrderMenuDeleteState"  parameterType="com.like.entity.OrderMenu">
+    update order_menu
+    <set>
+      menu_state = 0
+    </set>
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="menuId != null">
+           menu_id = #{menuId,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+  </update>
+
+  <!-- 根据OrderMenu实体删除 -->
+  <delete id="deleteByOrderMenu" parameterType="com.like.entity.OrderMenu">
+    delete from order_menu
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="menuId != null">
+         menu_id = #{menuId,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+  </delete>
+</mapper>

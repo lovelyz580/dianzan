@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.like.dao.mapper.OrderTodayeat">
+  <resultMap id="BaseResultMap" type="com.like.entity.OrderTodayeat">
+    <id column="eat_id" jdbcType="VARCHAR" property="eatId" />
+    <result column="eat_menuid" jdbcType="VARCHAR" property="eatMenuid" />
+    <result column="eat_userid" jdbcType="VARCHAR" property="eatUserid" />
+    <result column="eat_createtime" jdbcType="TIMESTAMP" property="eatCreatetime" />
+    <result column="eat_updatetime" jdbcType="TIMESTAMP" property="eatUpdatetime" />
+    <result column="eat_updatebyid" jdbcType="VARCHAR" property="eatUpdatebyid" />
+    <result column="eat_state" jdbcType="INTEGER" property="eatState" />
+    <result column="eat_other1" jdbcType="VARCHAR" property="eatOther1" />
+    <result column="eat_other2" jdbcType="VARCHAR" property="eatOther2" />
+    <result column="eat_other3" jdbcType="VARCHAR" property="eatOther3" />
+    <result column="eat_other4" jdbcType="VARCHAR" property="eatOther4" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    eat_id, eat_menuid, eat_userid, eat_createtime, eat_updatetime, eat_updatebyid, eat_state, 
+    eat_other1, eat_other2, eat_other3, eat_other4
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order_todayeat
+    where eat_id = #{eatId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from order_todayeat
+    where eat_id = #{eatId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.like.entity.OrderTodayeat">
+    insert into order_todayeat (eat_id, eat_menuid, eat_userid, 
+      eat_createtime, eat_updatetime, eat_updatebyid, 
+      eat_state, eat_other1, eat_other2, 
+      eat_other3, eat_other4)
+    values (#{eatId,jdbcType=VARCHAR}, #{eatMenuid,jdbcType=VARCHAR}, #{eatUserid,jdbcType=VARCHAR}, 
+      #{eatCreatetime,jdbcType=TIMESTAMP}, #{eatUpdatetime,jdbcType=TIMESTAMP}, #{eatUpdatebyid,jdbcType=VARCHAR}, 
+      #{eatState,jdbcType=INTEGER}, #{eatOther1,jdbcType=VARCHAR}, #{eatOther2,jdbcType=VARCHAR}, 
+      #{eatOther3,jdbcType=VARCHAR}, #{eatOther4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.like.entity.OrderTodayeat">
+    insert into order_todayeat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eatId != null">
+        eat_id,
+      </if>
+      <if test="eatMenuid != null">
+        eat_menuid,
+      </if>
+      <if test="eatUserid != null">
+        eat_userid,
+      </if>
+      <if test="eatCreatetime != null">
+        eat_createtime,
+      </if>
+      <if test="eatUpdatetime != null">
+        eat_updatetime,
+      </if>
+      <if test="eatUpdatebyid != null">
+        eat_updatebyid,
+      </if>
+      <if test="eatState != null">
+        eat_state,
+      </if>
+      <if test="eatOther1 != null">
+        eat_other1,
+      </if>
+      <if test="eatOther2 != null">
+        eat_other2,
+      </if>
+      <if test="eatOther3 != null">
+        eat_other3,
+      </if>
+      <if test="eatOther4 != null">
+        eat_other4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eatId != null">
+        #{eatId,jdbcType=VARCHAR},
+      </if>
+      <if test="eatMenuid != null">
+        #{eatMenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatUserid != null">
+        #{eatUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatCreatetime != null">
+        #{eatCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eatUpdatetime != null">
+        #{eatUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eatUpdatebyid != null">
+        #{eatUpdatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatState != null">
+        #{eatState,jdbcType=INTEGER},
+      </if>
+      <if test="eatOther1 != null">
+        #{eatOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther2 != null">
+        #{eatOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther3 != null">
+        #{eatOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther4 != null">
+        #{eatOther4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.like.entity.OrderTodayeat">
+    update order_todayeat
+    <set>
+      <if test="eatMenuid != null">
+        eat_menuid = #{eatMenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatUserid != null">
+        eat_userid = #{eatUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatCreatetime != null">
+        eat_createtime = #{eatCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eatUpdatetime != null">
+        eat_updatetime = #{eatUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eatUpdatebyid != null">
+        eat_updatebyid = #{eatUpdatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatState != null">
+        eat_state = #{eatState,jdbcType=INTEGER},
+      </if>
+      <if test="eatOther1 != null">
+        eat_other1 = #{eatOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther2 != null">
+        eat_other2 = #{eatOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther3 != null">
+        eat_other3 = #{eatOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther4 != null">
+        eat_other4 = #{eatOther4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where eat_id = #{eatId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.like.entity.OrderTodayeat">
+    update order_todayeat
+    set eat_menuid = #{eatMenuid,jdbcType=VARCHAR},
+      eat_userid = #{eatUserid,jdbcType=VARCHAR},
+      eat_createtime = #{eatCreatetime,jdbcType=TIMESTAMP},
+      eat_updatetime = #{eatUpdatetime,jdbcType=TIMESTAMP},
+      eat_updatebyid = #{eatUpdatebyid,jdbcType=VARCHAR},
+      eat_state = #{eatState,jdbcType=INTEGER},
+      eat_other1 = #{eatOther1,jdbcType=VARCHAR},
+      eat_other2 = #{eatOther2,jdbcType=VARCHAR},
+      eat_other3 = #{eatOther3,jdbcType=VARCHAR},
+      eat_other4 = #{eatOther4,jdbcType=VARCHAR}
+    where eat_id = #{eatId,jdbcType=VARCHAR}
+  </update>
+
+
+
+
+
+
+
+  <!-- 根据OrderTodayeat实体添加 -->
+  <insert id="insertByOrderTodayeat" parameterType="com.like.entity.OrderTodayeat">
+    insert into order_todayeat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eatId != null">
+        eat_id,
+      </if>
+      <if test="eatMenuid != null">
+        eat_menuid,
+      </if>
+      <if test="eatUserid != null">
+        eat_userid,
+      </if>
+      <if test="eatCreatetime != null">
+        eat_createtime,
+      </if>
+      <if test="eatUpdatetime != null">
+        eat_updatetime,
+      </if>
+      <if test="eatUpdatebyid != null">
+        eat_updatebyid,
+      </if>
+      <if test="eatState != null">
+        eat_state,
+      </if>
+      <if test="eatOther1 != null">
+        eat_other1,
+      </if>
+      <if test="eatOther2 != null">
+        eat_other2,
+      </if>
+      <if test="eatOther3 != null">
+        eat_other3,
+      </if>
+      <if test="eatOther4 != null">
+        eat_other4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eatId != null">
+        #{eatId,jdbcType=VARCHAR},
+      </if>
+      <if test="eatMenuid != null">
+        #{eatMenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatUserid != null">
+        #{eatUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatCreatetime != null">
+        #{eatCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eatUpdatetime != null">
+        #{eatUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eatUpdatebyid != null">
+        #{eatUpdatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatState != null">
+        #{eatState,jdbcType=INTEGER},
+      </if>
+      <if test="eatOther1 != null">
+        #{eatOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther2 != null">
+        #{eatOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther3 != null">
+        #{eatOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther4 != null">
+        #{eatOther4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <!-- 根据OrderTodayeat实体更新 -->
+  <update id="updateByOrderTodayeat" parameterType="com.like.entity.OrderTodayeat">
+    update order_todayeat
+    <set>
+      <if test="eatMenuid != null">
+        eat_menuid = #{eatMenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatUserid != null">
+        eat_userid = #{eatUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatCreatetime != null">
+        eat_createtime = #{eatCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eatUpdatetime != null">
+        eat_updatetime = #{eatUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eatUpdatebyid != null">
+        eat_updatebyid = #{eatUpdatebyid,jdbcType=VARCHAR},
+      </if>
+      <if test="eatState != null">
+        eat_state = #{eatState,jdbcType=INTEGER},
+      </if>
+      <if test="eatOther1 != null">
+        eat_other1 = #{eatOther1,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther2 != null">
+        eat_other2 = #{eatOther2,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther3 != null">
+        eat_other3 = #{eatOther3,jdbcType=VARCHAR},
+      </if>
+      <if test="eatOther4 != null">
+        eat_other4 = #{eatOther4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="eatId != null">
+          eat_id = #{eatId,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+  </update>
+  <!-- 根据OrderTodayeat实体查询 -->
+  <!-- 查询数量 -->
+  <select id="selectCountByOrderTodayeat" parameterType="com.like.entity.OrderTodayeat" resultType="java.lang.Integer">
+    select count(*) from order_todayeat
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="eatId != null">
+          eat_id = #{eatId,jdbcType=VARCHAR}
+        </if>
+        <if test="eatMenuid != null">
+        AND  eat_menuid = #{eatMenuid,jdbcType=VARCHAR}
+        </if>
+        <if test="eatUserid != null">
+          AND  eat_userid = #{eatUserid,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+  </select>
+
+  <!-- 根据OrderTodayeat实体查询 -->
+  <!-- 可以进行分页查询 -->
+  <!-- pageNumber 当前页数(如果不进行分页，该条数据默认为-1) -->
+  <!-- pageSize 每页的数据量 -->
+  <select id="selectByOrderTodayeat" parameterType="com.like.entity.OrderTodayeat" resultMap="BaseResultMap">
+    select * from order_todayeat
+    <where>
+      <trim suffixOverrides="and|or">
+        <if test="eatId != null">
+          eat_id = #{eatId,jdbcType=VARCHAR}
+        </if>
+        <if test="eatMenuid != null">
+          AND  eat_menuid = #{eatMenuid,jdbcType=VARCHAR}
+        </if>
+        <if test="eatUserid != null">
+          AND  eat_userid = #{eatUserid,jdbcType=VARCHAR}
+        </if>
+      </trim>
+    </where>
+    <!-- 分页 -->
+    <if test="pagenumber != -1">
+      limit #{pagenumber,jdbcType=INTEGER},
+      #{pagesize,jdbcType=INTEGER}
+    </if>
+  </select>
+
+
+  <!-- 根据OrderTodayeat实体删除（假删、更新删除状态） -->
+  <update id="updateByOrderTodayeatDeleteState"  parameterType="com.like.entity.OrderTodayeat">
+    update order_todayeat
+    <set>
+      eat_state = 0
+    </set>
+    <where>
+      <trim suffixOverrides="and|or">
+        <trim suffixOverrides="and|or">
+          <if test="eatId != null">
+            eat_id = #{eatId,jdbcType=VARCHAR}
+          </if>
+          <if test="eatMenuid != null">
+            AND  eat_menuid = #{eatMenuid,jdbcType=VARCHAR}
+          </if>
+          <if test="eatUserid != null">
+            AND  eat_userid = #{eatUserid,jdbcType=VARCHAR}
+          </if>
+        </trim>
+
+      </trim>
+    </where>
+  </update>
+
+  <!-- 根据OrderTodayeat实体删除 -->
+  <delete id="deleteByOrderTodayeat" parameterType="com.like.entity.OrderTodayeat">
+    delete from order_todayeat
+    <where>
+        <trim suffixOverrides="and|or">
+          <if test="eatId != null">
+            eat_id = #{eatId,jdbcType=VARCHAR}
+          </if>
+          <if test="eatMenuid != null">
+            AND  eat_menuid = #{eatMenuid,jdbcType=VARCHAR}
+          </if>
+          <if test="eatUserid != null">
+            AND  eat_userid = #{eatUserid,jdbcType=VARCHAR}
+          </if>
+        </trim>
+    </where>
+  </delete>
+</mapper>
